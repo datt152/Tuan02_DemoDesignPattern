@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/payment_mermaid.md">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/payment_mermaid.md" />
+              <option name="updatedContent" value="```mermaid&#10;classDiagram&#10;    class PaymentContext {&#10;        -PaymentState state&#10;        -PaymentStrategy strategy&#10;        -double amount&#10;    }&#10;    PaymentContext o--&gt; PaymentState : uses&#10;    PaymentContext o--&gt; PaymentStrategy : uses&#10;&#10;    class PaymentStrategy {&lt;&lt;interface&gt;&gt;}&#10;    CreditCardPayment ..|&gt; PaymentStrategy&#10;    PaypalPayment ..|&gt; PaymentStrategy&#10;&#10;    class PaymentState {&lt;&lt;interface&gt;&gt;}&#10;    PendingState ..|&gt; PaymentState&#10;    CompletedState ..|&gt; PaymentState&#10;    FailedState ..|&gt; PaymentState&#10;&#10;    class PaymentDecorator {&lt;&lt;abstract&gt;&gt;}&#10;    PaymentDecorator --|&gt; PaymentContext&#10;    ProcessingFeeDecorator --|&gt; PaymentDecorator&#10;    DiscountDecorator --|&gt; PaymentDecorator&#10;    PaymentDecorator o--&gt; PaymentContext : wraps&#10;```&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

@@ -1,7 +1,6 @@
 package org.example.order.state;
 
 import org.example.order.Order;
-import org.example.order.refund.RefundStrategy;
 
 public class CancelState implements OrderState {
 

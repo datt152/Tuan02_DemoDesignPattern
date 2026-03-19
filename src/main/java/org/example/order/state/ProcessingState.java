@@ -18,5 +18,6 @@ public class ProcessingState implements OrderState {
     public void cancel(Order context) {
         System.out.println("Huy don hang trong qua trinh xu ly");
         context.getState(new CancelState());
+        context.refund();
     }
 }

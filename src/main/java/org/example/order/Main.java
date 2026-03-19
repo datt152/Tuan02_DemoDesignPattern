@@ -3,8 +3,9 @@ package org.example.order;
 import org.example.order.GiftWrapDecorator;
 import org.example.order.Order;
 import org.example.order.InsuranceDecorator;
+import org.example.order.refund.BankRefund;
+import org.example.order.refund.MomoRefund;
 import org.example.order.ship.FastShipping;
-;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,6 +13,8 @@ public class Main {
 
         // 1. Tạo đơn hàng cơ bản
         Order order = new Order();
+        order.setAmount(250_000);
+        order.setRefundStrategy(new BankRefund());
 
         // 2. Decorator: Thêm quà tặng và bảo hiểm
         order = new GiftWrapDecorator(order);
@@ -29,11 +32,13 @@ public class Main {
         order.nextStep(); // Từ Đang xử lý -> Đã giao
 
         System.out.println("\n--- THỬ NGHIỆM HỦY ĐƠN KHI ĐÃ GIAO ---");
-        order.cancelOrder();
+        order.cancelOrder(); // Không hoàn tiền
 
         System.out.println("\n--- TẠO ĐƠN MỚI VÀ HỦY NGAY ---");
         Order order2 = new Order();
-        order2.cancelOrder();
+        order2.setAmount(150_000);
+        order2.setRefundStrategy(new MomoRefund());
+        order2.cancelOrder(); // Hủy ở trạng thái Mới tạo -> Hoàn tiền về Momo
         order2.nextStep(); // Thử bấm tiếp tục sau khi hủy
     }
 }

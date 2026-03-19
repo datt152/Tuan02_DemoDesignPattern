@@ -19,5 +19,6 @@ public class NewOrderState implements OrderState {
     public void cancel(Order context) {
         System.out.println("Huy don hang theo yeu cau");
         context.getState(new CancelState());
+        context.refund();
     }
 }

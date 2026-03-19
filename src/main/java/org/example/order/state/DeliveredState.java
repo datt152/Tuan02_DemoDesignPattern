@@ -15,6 +15,5 @@ public class DeliveredState implements OrderState {
     @Override
     public void cancel(Order context) {
         System.out.println("Khong the huy don hang da giao");
-
     }
 }
